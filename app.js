@@ -3,17 +3,13 @@ function shuffleCount(deckSize)
     const originalDeck = ([...Array(deckSize).keys()].map(x => ++x)); //The map makes sure we start from 1
     let shuffledDeck = shuffleDeck(originalDeck);
     let count = 1;
-    let same = compareArrays(originalDeck, shuffledDeck);
+    let same = false;
 
     while(!same)
     {
         shuffledDeck = shuffleDeck(shuffledDeck);
         count++;
         same = compareArrays(originalDeck, shuffledDeck);
-        if (count > 20) 
-        {
-          break;   
-        }
     }
     return count;
 }
